@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "614187690834",
+    "project_id": "yudhisav",
+    "storage_bucket": "yudhisav.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614187690834:android:9b50550dc5bf7741f9288b",
+        "android_client_info": {
+          "package_name": "com.example.yudhisav"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614187690834-e5ke8rk8kiopnq9hjav1u7he0610tt9i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yudhisav",
+            "certificate_hash": "e75f1a80ecbb06b8ad0202c2bc13a09c87d21ed5"
+          }
+        },
+        {
+          "client_id": "614187690834-qce43l6f2haa8f33m5599sf2i9st03s6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC-cYO-q8Rl_DgN1aADsdF5Wlc8tBc6CA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614187690834-qce43l6f2haa8f33m5599sf2i9st03s6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "614187690834-0lbtouqq5c0d9pi3t11o307b986jqm5j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.yudhisav"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
