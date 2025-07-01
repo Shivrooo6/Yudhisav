@@ -23,11 +23,20 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
       return;
     }
 
+    if (_titleController.text.trim().isEmpty ||
+        _descriptionController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please fill all fields.')),
+      );
+      return;
+    }
+
     setState(() => _isLoading = true);
 
     try {
       await FirebaseFirestore.instance.collection('complaints').add({
         'userId': user.uid,
+        'email': user.email,
         'title': _titleController.text.trim(),
         'description': _descriptionController.text.trim(),
         'timestamp': Timestamp.now(),
@@ -38,7 +47,7 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
         const SnackBar(content: Text('Complaint submitted successfully!')),
       );
 
-      Navigator.pop(context); // Go back to home or previous screen
+      Navigator.pop(context);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error: $e')),
@@ -53,10 +62,10 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('File a Complaint'),
-        backgroundColor: const Color(0xFFF54A00),
+        backgroundColor: const Color.fromARGB(255, 89, 218, 228),
         foregroundColor: Colors.white,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
@@ -82,7 +91,7 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
               child: ElevatedButton(
                 onPressed: _isLoading ? null : _submitComplaint,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFF54A00),
+                  backgroundColor: const Color.fromARGB(255, 0, 237, 245),
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),

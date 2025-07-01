@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:yudhisav/bottomnav/bottomnavscreen.dart'; // ✅ Import this
 import 'package:yudhisav/complaint_form_screen.dart';
-import 'package:yudhisav/home/homescreen.dart';
 import 'package:yudhisav/loginscreen/loginscreen.dart'; 
 import 'firebase_options.dart';
 
@@ -22,7 +22,6 @@ void main() async {
 
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -50,7 +49,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const AuthWrapper(),
         '/login': (context) => const LoginScreen(),
-        '/home': (context) => const HomeScreen(),
+        '/home': (context) => const BottomNavScreen(), // ✅ Updated here
         '/file-complaint': (context) => const ComplaintFormScreen(),
       },
     );

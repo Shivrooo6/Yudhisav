@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:yudhisav/complaint_form_screen.dart';
+import 'package:yudhisav/complaints/help.dart';
+import 'package:yudhisav/historyscreen.dart';
+// Ensure this path matches the actual file location
 import 'package:yudhisav/home/homescreen.dart';
 import 'package:yudhisav/user/userscreen.dart';
 
@@ -17,14 +19,16 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
 
   final List<String> icons = [
     "house.png",
-    "book-open-text.png",
+    "history.png",
     "user.png",
+    "circle-help.png",
   ];
 
   final List<String> labels = [
     "Home",
-    "Complaint",
-    "User"
+    "History",
+    "User",
+    "Help",
   ];
 
   late final List<Widget> pages;
@@ -36,15 +40,15 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
 
     pages = [
       const HomeScreen(),
-      const ComplaintFormScreen(),
+      const HistoryScreen(),
       const UserScreen(),
+      const HelpScreen(),
     ];
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: IndexedStack(
         index: currentIndex,
         children: pages,
@@ -62,29 +66,32 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             ),
           ],
         ),
-        child: BottomNavigationBar(
-          currentIndex: currentIndex,
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          selectedItemColor: const Color(0XFFF54A00),
-          unselectedItemColor: Colors.grey,
-          showUnselectedLabels: true,
-          onTap: (index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-          items: List.generate(icons.length, (index) {
-            final imagePath = 'assets/images/${icons[index]}';
-            return BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage(imagePath),
-                size: 26,
-              ),
-              label: labels[index],
-            );
-          }),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: BottomNavigationBar(
+            currentIndex: currentIndex,
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.white,
+            elevation: 0,
+            selectedItemColor: const Color.fromARGB(255, 0, 91, 128),
+            unselectedItemColor: Colors.grey,
+            showUnselectedLabels: true,
+            onTap: (index) {
+              setState(() {
+                currentIndex = index;
+              });
+            },
+            items: List.generate(icons.length, (index) {
+              final imagePath = 'assets/images/${icons[index]}';
+              return BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage(imagePath),
+                  size: 26,
+                ),
+                label: labels[index],
+              );
+            }),
+          ),
         ),
       ),
     );
