@@ -3,6 +3,7 @@ import 'package:yudhisav/complaints/help.dart';
 import 'package:yudhisav/historyscreen.dart';
 // Ensure this path matches the actual file location
 import 'package:yudhisav/home/homescreen.dart';
+import 'package:yudhisav/jobapplicaitonscreen.dart';
 import 'package:yudhisav/user/userscreen.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -20,6 +21,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List<String> icons = [
     "house.png",
     "history.png",
+    "job.png",
     "user.png",
     "circle-help.png",
   ];
@@ -27,6 +29,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List<String> labels = [
     "Home",
     "History",
+    "Jobs",
     "User",
     "Help",
   ];
@@ -41,6 +44,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     pages = [
       const HomeScreen(),
       const HistoryScreen(),
+      const JobApplicationScreen(),
       const UserScreen(),
       const HelpScreen(),
     ];

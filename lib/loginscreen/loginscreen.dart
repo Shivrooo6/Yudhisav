@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+ import 'package:firebase_auth/firebase_auth.dart';
+ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:yudhisav/bottomnav/bottomnavscreen.dart';
 import 'package:yudhisav/repository/widgets/uihelper.dart';
 
@@ -18,9 +18,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    _checkIfAlreadyLoggedIn();
+     _checkIfAlreadyLoggedIn();
   }
 
+  
   void _checkIfAlreadyLoggedIn() {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
@@ -30,11 +31,14 @@ class _LoginScreenState extends State<LoginScreen> {
       );
     }
   }
+  
 
   Future<void> _handleGoogleAuth() async {
     setState(() => _isLoading = true);
 
     try {
+      // Commented out Google Sign-In code:
+      
       final GoogleSignIn googleSignIn = GoogleSignIn();
       final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
 
@@ -77,8 +81,12 @@ class _LoginScreenState extends State<LoginScreen> {
           await FirebaseAuth.instance.signOut();
         }
       }
+      
+
+      // Just navigate directly to home for testing:
+      _navigateToHome();
     } catch (e) {
-      _showMessage("Sign-In failed. Make sure SHA-1 is added in Firebase.");
+      _showMessage("Sign-In failed (mock).");
     } finally {
       setState(() => _isLoading = false);
     }
@@ -151,35 +159,37 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 30),
 
               _isLoading
-    ? const CircularProgressIndicator()
-    : ElevatedButton(
-        onPressed: _handleGoogleAuth,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
-            side: const BorderSide(color: Colors.grey),
-          ),
-          elevation: 3,
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              'assets/images/google_icon.png',
-              height: 24,
-              width: 24,
-            ),
-            const SizedBox(width: 12),
-            Text(
-              isLoginMode ? "Login with Google" : "Register with Google",
-              style: const TextStyle(color: Colors.black),
-            ),
-          ],
-        ),
-      ),
-
+                  ? const CircularProgressIndicator()
+                  : ElevatedButton(
+                      onPressed: _handleGoogleAuth,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          side: const BorderSide(color: Colors.grey),
+                        ),
+                        elevation: 3,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset(
+                            'assets/images/google_icon.png',
+                            height: 24,
+                            width: 24,
+                          ),
+                          const SizedBox(width: 12),
+                          Text(
+                            isLoginMode
+                                ? "Login with Google"
+                                : "Register with Google",
+                            style: const TextStyle(color: Colors.black),
+                          ),
+                        ],
+                      ),
+                    ),
 
               const SizedBox(height: 20),
               Text.rich(
