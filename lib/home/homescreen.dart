@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
-  final Color primaryColor = const Color.fromARGB(255, 2, 171, 194); // Deep teal
+  final Color primaryColor = const Color.fromARGB(255, 230, 125, 5); // Deep teal
   final Color accentColor = const Color(0xFFFF7043); // Vibrant orange
 
   final List<Course> courses = [
@@ -20,9 +20,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       lectures: [
         Lecture(
           title: 'Basics of Trading',
-          videoUrl: 'gs://yudhisav.firebasestorage.app/UGROW FUN @ 1 EXPPP.mp4',
+          videoUrl: 'https://example.com/trading1.mp4',
           notes: 'Introduction to stock and forex markets.',
           quizQuestions: ['What is trading?', 'Name one type of market.'],
+        
         ),
         Lecture(
           title: 'Technical Analysis',
@@ -179,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [Color.fromARGB(255, 97, 255, 247), Color.fromARGB(255, 92, 89, 84)],
+                    colors: [Color.fromARGB(255, 216, 142, 5), Color.fromARGB(255, 190, 153, 90)],
                     begin: Alignment.topLeft, end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(16),

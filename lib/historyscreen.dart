@@ -7,7 +7,7 @@ class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});
 
   // 🌈 Choose your AppBar color here:
-  static const Color appBarColor = Color(0xFF26A69A); // light blue example
+  static const Color appBarColor = Color.fromARGB(255, 231, 162, 12); // light blue example
 
   // 🎨 Example palette:
   // Color(0xFFF54A00) - orange

@@ -62,7 +62,7 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('File a Complaint'),
-        backgroundColor: const Color.fromARGB(255, 89, 218, 228),
+        backgroundColor: const Color.fromARGB(255, 255, 149, 11),
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
